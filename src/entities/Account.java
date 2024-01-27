@@ -6,7 +6,7 @@ public class Account {
 	private String holder;
 	private Double balance;
 	private Double withdrawLimit;
-	
+	//ATRIBUTOS
 	
 	//CONSTRUTORES
 	public Account() {
@@ -20,6 +20,7 @@ public class Account {
 		this.balance = balance;
 		this.withdrawLimit = withdrawLimit;
 	}
+	//CONSTRUTORES
 	
 	
 	//GET and SET
@@ -54,6 +55,7 @@ public class Account {
 	//public void setWithdrawnLimit(Double withdrawnLimit) {		o mesmo se aplica para o saque
 		//this.withdrawnLimit = withdrawnLimit;
 //	}
+	//GET and SET
 	
 	
 	// MÉTODOS

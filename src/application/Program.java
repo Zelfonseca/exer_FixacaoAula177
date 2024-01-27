@@ -32,12 +32,22 @@ public class Program {
 		Account acc = new Account(number, holder, balance, withdrawLimit);
 		
 		System.out.println();
-		System.out.print("Informe uma quantia para sacar: R$");
+		System.out.print("Informe uma quantia para sacar: R$ ");
 		double amount = sc.nextDouble();
-		acc.withdraw(amount); // assim que insiro o valor a ser sacado da conta, eu chamo o método de saque da classe ACCOUNT
-		System.out.printf("Novo Saldo: R$ %.2f" , acc.getBalance()); 
 		
-		// realizei upload para o git hub
+		if(amount > acc.getWithdrawLimit()) {
+			System.out.println("Erro de saque: A quantia excede o limite de saque");
+		}
+		else if(amount > acc.getBalance()){
+			System.out.println("Erro de sque: Saldo insuficiente");
+		}
+		else {
+			acc.withdraw(amount);					 // assim que insiro o valor a ser sacado da conta, eu chamo o método de saque da classe ACCOUNT
+			System.out.printf("Novo Saldo: R$ %.2f" , acc.getBalance()); 
+		}
+		
+		
+		//NESTA PRIMEIRA VERSÃO SERÁ FEITO O "MÉTODO RUIM" COM TODA A PROGRAMAÇÃO NO PROGRAMA PRINCIPAL.
 		
 		
 		
