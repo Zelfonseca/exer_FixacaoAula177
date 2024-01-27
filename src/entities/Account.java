@@ -59,7 +59,6 @@ public class Account {
 	
 	
 	// MÉTODOS
-	
 	public void deposit(double amount) {
 		balance += amount;
 	}
@@ -68,7 +67,17 @@ public class Account {
 		balance = balance - amount;
 	}
 	
+	public String validateWithdraw(double amount) {		//	método para se efetuar a regra para saque da conta
+		if(amount > getWithdrawLimit()) {
+			return "Erro de saque: A quantia excede o limite de saque";
+		}
+		if(amount > getBalance()){
+			return "Erro de sque: Saldo insuficiente";
+		}
+		return null;
+	}
 	
+	// MÉTODOS
 	
 
 }

@@ -35,11 +35,9 @@ public class Program {
 		System.out.print("Informe uma quantia para sacar: R$ ");
 		double amount = sc.nextDouble();
 		
-		if(amount > acc.getWithdrawLimit()) {
-			System.out.println("Erro de saque: A quantia excede o limite de saque");
-		}
-		else if(amount > acc.getBalance()){
-			System.out.println("Erro de sque: Saldo insuficiente");
+		String error = acc.validateWithdraw(amount);
+		if(error != null) {
+			System.out.println(error);
 		}
 		else {
 			acc.withdraw(amount);					 // assim que insiro o valor a ser sacado da conta, eu chamo o método de saque da classe ACCOUNT
@@ -47,7 +45,7 @@ public class Program {
 		}
 		
 		
-		//NESTA PRIMEIRA VERSÃO SERÁ FEITO O "MÉTODO RUIM" COM TODA A PROGRAMAÇÃO NO PROGRAMA PRINCIPAL.
+		//NESTA SEGUNDA VERSÃO FOI INSERIDO UM MÉTODO NA CLASSE ACCOUNT PARA SER EFETUADO A REGRA PARA O SAQUE .
 		
 		
 		
