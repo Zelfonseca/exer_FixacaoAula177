@@ -4,6 +4,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Account;
+import exceptions.BusinessException;
 
 public class Program {
 
@@ -35,19 +36,19 @@ public class Program {
 		System.out.print("Informe uma quantia para sacar: R$ ");
 		double amount = sc.nextDouble();
 		
-		String error = acc.validateWithdraw(amount);
-		if(error != null) {
-			System.out.println(error);
-		}
-		else {
+		
+		try {
 			acc.withdraw(amount);					 // assim que insiro o valor a ser sacado da conta, eu chamo o método de saque da classe ACCOUNT
 			System.out.printf("Novo Saldo: R$ %.2f" , acc.getBalance()); 
 		}
+		catch(BusinessException e) {
+			System.out.println(e.getMessage());
+		}
 		
 		
-		//NESTA SEGUNDA VERSÃO FOI INSERIDO UM MÉTODO NA CLASSE ACCOUNT PARA SER EFETUADO A REGRA PARA O SAQUE .
+		//NESTA TERCEIRA VERSÃO FOI CRIADA UMA CLASSE PARA ARMAZENAR AS EXCESSÕES PARA SEREM LANÇADAS QUANDO HOUVER ERROS EM INSERIR OS DADOS.
 		
-		
+		// SENDO MAIS FÁCIL PARA A MANUTENÇÃO E DEIXANDO A CODIFICAÇÃO MAIS LIMPA
 		
 		
 		
